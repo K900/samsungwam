@@ -189,6 +189,7 @@ class SamsungWamPlayer(MediaPlayerEntity):
         """
         self.speaker.events.register_subscriber(self._pywam_receiver)
         self.hass.data[DOMAIN][ID_MAPPINGS][self.entity_id] = self.speaker
+        await self.speaker.update()
 
     async def async_will_remove_from_hass(self) -> None:
         """Run when entity will be removed from hass.
